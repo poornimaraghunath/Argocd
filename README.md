@@ -53,10 +53,39 @@
 
      Redis - it is used for caching used as inmemory
 
+     Application set controller -
+
+     notifications controller -It is released in latest version of Argocd 
+
      #Argocd can be installed in three ways
 
        -Yaml manifests
        -Helm
        -operator
 
+
+# Installation
+
+First install #kubectl the command line tool to interact with kubernetes cluster
+ # https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+Then install Docker is it dependency for minikube
+# Run the below command to Install Docker
+
+sudo apt update
+sudo apt install docker.io
+# Grant Ubuntu user permission to docker deamon.
+sudo su - 
+usermod -aG docker ubuntu(Ubuntu user will be added to docker group)
+systemctl restart docker
+
+# Then install minikube 
+https://minikube.sigs.k8s.io/docs/start/
+
+# Then install Argocd using Plain manifests
+ https://argo-cd.readthedocs.io/en/stable/getting_started/
+
+By default argocd comes in cluster Ip mode it means only it can be accessed in kubernetes cluster 
+
+To access it from the laptop change it nodeport mode in argocd svc in argocd server component
 
