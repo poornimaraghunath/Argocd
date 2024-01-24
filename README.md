@@ -30,3 +30,33 @@
     Continuous reconcilation
 
 
+# Argocd
+  
+  Created by Enginners at Apaltix
+  It is open Source
+
+  Gitops it always tries to maintain the synch(state) betweem git and kubernetes
+  If someones tries to modify in cluster it will overwrite with whatover is present in git because git is always single source of truth.
+
+  # Argocd Architecture
+     It contains the below components
+
+     Reposerver - it is one microservice which connects to git and get the state
+
+     Application controller - It is another microservcie which connects to k8's and get the state
+
+     It compares the synch between them if there is any differnece application controller synches with state of git.
+
+     APi Server - Which is used by users to communicate to Argocd by using UI/CLI
+
+     DEX - It is very lightweight OIDC it connect with any external identities which helps in sso.
+
+     Redis - it is used for caching used as inmemory
+
+     #Argocd can be installed in three ways
+
+       -Yaml manifests
+       -Helm
+       -operator
+
+
