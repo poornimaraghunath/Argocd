@@ -89,3 +89,30 @@ By default argocd comes in cluster Ip mode it means only it can be accessed in k
 
 To access it from the laptop change it nodeport mode in argocd svc in argocd server component
 
+After changing to nodeport mode it can be accessed from minikube cluster to access it from the browser we need to port forwarding 
+
+Use the below command to do port forwarding  
+
+# kubectl port-forward svc/argocd-server -n argocd --address 0.0.0.0 8080:443
+Always run in that background
+
+# How to get argocd UI password
+ Kubectl get secret -n argocd
+
+In  that go to argocd-initial-admin-secret
+ # kubectl edit secret argocd-initial-admin-secret -n argocd
+ Then copy the password from that and do decoding by using the below command
+
+ UXVZa04xaWR3a1kyUHVjVg==
+
+ Enter the below command to decode 
+
+echo value of the secret /n | base64 --decode
+
+
+
+
+
+
+
+
