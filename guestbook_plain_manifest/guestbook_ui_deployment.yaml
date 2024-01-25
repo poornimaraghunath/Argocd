@@ -1,20 +1,20 @@
-apiversion : apps/v1
-kind : deployment
-metadata :
-  name : guestbook_ui
-spec :
-  replicas : 1                  # it means that the Deployment will retain the last three versions of ReplicaSets. If you roll back the Deployment, it can revert to any of these three previous versions.
-  revisionHistroyLimit : 3
-  Selector :
-   matchlabels :
-     app : guestbook_ui
-  templates :
-   metadata :
-    labels :
-      app : guestbook_ui
-   spec :
-    containers :
-    - image : gcr.io/heptio-images/ks-guestbook-demo:0.2
-      name : guestbook_ui
-      ports :
-      -containerport : 80
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guestbook-ui
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: guestbook-ui
+  template:
+    metadata:
+      labels:
+        app: guestbook-ui
+    spec:
+      containers:
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+        name: guestbook-ui
+        ports:
+        - containerPort: 80
