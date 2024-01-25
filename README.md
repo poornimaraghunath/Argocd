@@ -112,6 +112,27 @@ echo value of the secret /n | base64 --decode
 #Follow this argocd repository for argocd examples
 https://github.com/argoproj/argocd-example-apps
 
+# How to use argocd CLI
+    https://argo-cd.readthedocs.io/en/stable/cli_installation/
+
+    Enter command argocd login 100.25.110.105:8080(ipaddress of the url)
+    Then enter username and password
+     
+
+# Command to create the application through CLI 
+ argocd app create guestbook --repo https://github.com/argoproj/argocd-example-apps.git --path guestbook --dest-server https://kubernetes.default.svc --dest-namespace default
+
+# Once application is deployed enter the below command to check the status
+  argocd app get guestbook
+ 
+# To sync the application and see the pods enter the below commnand
+ argocd app sync guestbook
+    
+     
+  
+
+
+
 
 
 
