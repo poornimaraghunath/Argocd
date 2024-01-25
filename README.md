@@ -109,6 +109,8 @@ In  that go to argocd-initial-admin-secret
 
 echo value of the secret /n | base64 --decode
 
+#Follow this argocd repository for argocd examples
+https://github.com/argoproj/argocd-example-apps
 
 
 
