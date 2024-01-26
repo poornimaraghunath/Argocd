@@ -127,6 +127,41 @@ https://github.com/argoproj/argocd-example-apps
  
 # To sync the application and see the pods enter the below commnand
  argocd app sync guestbook
+
+
+
+# Step 2 : Install argocd using helm
+
+# 1 .Clone the below repository
+https://github.com/argoproj/argo-helm
+
+# 2. Then change the directory to argocd
+
+    cd argo-helm/charts/argo-cd
+
+# 3 create a namespace myargo
+    kubectl create ns myargo
+
+# 4 Update dependencies 
+    helm dependency up
+
+# 5 Install argo using helm command
+   helm install latest -f values.yaml -n myargo
+
+   Helm install - It is install command passed
+   Latest - It is the release
+   -f values.yaml - passing the file values.yaml to use the custom values
+   -n myargo - name of the namespace
+
+# 6 Once it is installed we need to access the argocd on browser for that use the below command
+    kubectl port-forward service/latest-argocd-server -n myargo --address 0.0.0.0 8080:443
+
+# 7 Then use the below command get the password for the initial admin
+    kubectl -n myargo get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+
+
+
     
      
   
